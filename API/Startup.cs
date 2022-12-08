@@ -1,3 +1,5 @@
+using Application.Activities;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Persistence;
@@ -33,6 +35,7 @@ namespace API
                     policy.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
                 });
             });
+            services.AddMediatR(typeof(List.Handler));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
